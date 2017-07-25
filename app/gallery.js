@@ -1,44 +1,63 @@
 import React, { Component } from 'react';
 import {
+  CameraRoll,
+  Dimensions,
+  Image,
+  ScrollView,
   StyleSheet,
+  TouchableHighlight,
   Text,
   View
 } from 'react-native';
 
+const { width } = Dimensions.get('window')
+
 export default class Gallery extends Component {
+
+  constructor() {
+    super();
+    this.getPhotos();
+  }
+
+  static navigationOptions = {
+    title: 'Camera Roll App???'
+  }
+
+  state = {
+    photos: []
+  }
+
+  getPhotos = () => {
+    CameraRoll.getPhotos({
+      first: 20,
+      assetType: 'All'
+    })
+    .then(r => this.setState({ photos: r.edges }))
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native Gallery!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <ScrollView
+        contentContainerStyle={styles.scrollView}>
+        {
+          this.state.photos.map((p) => {
+            return (
+              <Image
+                key={ p.node.image.filename }
+                style={{ width: width / 3, height: width / 3 }}
+                source={{ uri: p.node.image.uri }}
+              />
+            )
+          })
+        }
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  scrollView: {
+    flexWrap: 'wrap',
+    flexDirection: 'row'
+  }
 });
