@@ -57,6 +57,7 @@ export default class Gallery extends Component {
 
 const styles = StyleSheet.create({
   scrollView: {
+    marginTop: 20,
     flexWrap: 'wrap',
     flexDirection: 'row'
   }

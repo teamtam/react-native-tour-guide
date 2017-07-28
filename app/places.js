@@ -1,4 +1,4 @@
-var places = 
+export const Places =
   [
     { "name": "Arts Centre Melbourne", "lat": -37.821453, "long": 144.968417, "image": "ArtsCentre.jpg" },
     { "name": "Crown Casino", "lat": -37.823530, "long": 144.958095, "image": "CrownCasino.jpg" },
