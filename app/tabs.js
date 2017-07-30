@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import Home from "./home";
-import Camera from "./camera";
+import Map from "./map";
 import Gallery from "./gallery";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -18,11 +18,11 @@ export const Tabs = TabNavigator({
       tabBarIcon: () => <Icon name="home" size={30} />,
     },
   },
-  Camera: {
-    screen: Camera,
+  Map: {
+    screen: Map,
     navigationOptions: {
-      tabBarLabel: 'Camera',
-      tabBarIcon: () => <Icon name="camera" size={24} />,
+      tabBarLabel: 'Map',
+      tabBarIcon: () => <Icon name="map" size={24} />,
     },
   },
   Gallery: {

@@ -10,7 +10,7 @@ import { Places } from "./places";
 
 const { width, height } = Dimensions.get('window');
 
-export default class Camera extends Component {
+export default class Map extends Component {
 
   render() {
     return (
@@ -25,6 +25,7 @@ export default class Camera extends Component {
       >
         {Places.map(place => (
           <MapView.Marker
+            key={place.image}
             coordinate={{latitude: place.lat, longitude: place.long}}
             title={place.name}
           />
