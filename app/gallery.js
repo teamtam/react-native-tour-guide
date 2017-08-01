@@ -40,12 +40,12 @@ export default class Gallery extends Component {
       <ScrollView
         contentContainerStyle={styles.scrollView}>
         {
-          this.state.photos.map((p) => {
+          this.state.photos.map((photo, index) => {
             return (
               <Image
-                key={ p.node.image.filename }
+                key={ index }
                 style={{ width: width / 3, height: width / 3 }}
-                source={{ uri: p.node.image.uri }}
+                source={{ uri: photo.node.image.uri }}
               />
             )
           })

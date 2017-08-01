@@ -15,7 +15,7 @@ export default class Map extends Component {
   render() {
     return (
       <MapView
-        style={styles.map}
+        style={styles.mapView}
         initialRegion={{
           latitude: -37.813628,
           longitude: 144.963058,
@@ -36,7 +36,7 @@ export default class Map extends Component {
 }
 
 const styles = StyleSheet.create({
-  map: {
+  mapView: {
     marginTop: 20,
     width: width,
     height: height,
