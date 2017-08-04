@@ -15,7 +15,7 @@ export default class Map extends Component {
   render() {
     return (
       <MapView
-        style={styles.mapView}
+        style={ styles.mapView }
         initialRegion={{
           latitude: -37.813628,
           longitude: 144.963058,
@@ -25,9 +25,9 @@ export default class Map extends Component {
       >
         {Places.map(place => (
           <MapView.Marker
-            key={place.image}
-            coordinate={{latitude: place.lat, longitude: place.long}}
-            title={place.name}
+            key={ place.image }
+            coordinate={{ latitude: place.lat, longitude: place.long }}
+            title={ place.name }
           />
         ))}
       </MapView>

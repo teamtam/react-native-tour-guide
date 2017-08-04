@@ -19,10 +19,6 @@ export default class Gallery extends Component {
     this.getPhotos();
   }
 
-  static navigationOptions = {
-    title: 'Camera Roll App???'
-  }
-
   state = {
     photos: []
   }
@@ -38,14 +34,14 @@ export default class Gallery extends Component {
   render() {
     return (
       <ScrollView
-        contentContainerStyle={styles.scrollView}>
+        contentContainerStyle={ styles.scrollView }>
         {
-          this.state.photos.map((photo, index) => {
+          this.state.photos.map((p, i) => {
             return (
               <Image
-                key={ index }
+                key={ i }
                 style={{ width: width / 3, height: width / 3 }}
-                source={{ uri: photo.node.image.uri }}
+                source={{ uri: p.node.image.uri }}
               />
             )
           })
