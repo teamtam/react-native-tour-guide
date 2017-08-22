@@ -1,4 +1,4 @@
-package com.bluffometerreactnative;
+package com.tourguide;
 
 import android.app.Application;
 
